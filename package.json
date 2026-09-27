@@ -1,0 +1,12 @@
+{
+  "name": "music-timeline",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "node scripts/dev.js"
+  },
+  "dependencies": {
+    "@netlify/blobs": "^10.7.10",
+    "@netlify/functions": "^6.0.0"
+  }
+}
