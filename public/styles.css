@@ -965,3 +965,7 @@ textarea {
   color: var(--color-fg);
   z-index: 1;
 }
+
+.error-message.is-info {
+  border-left-color: var(--color-accent);
+}

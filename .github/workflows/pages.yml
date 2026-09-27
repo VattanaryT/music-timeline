@@ -1,0 +1,34 @@
+name: Deploy to GitHub Pages
+
+# Publishes only public/, so nothing else in the repo is served.
+on:
+  push:
+    branches: [main]
+    paths: ["public/**", ".github/workflows/pages.yml"]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+# Saves from the editor land as quick back-to-back commits; only the latest
+# needs to go out.
+concurrency:
+  group: pages
+  cancel-in-progress: true
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/configure-pages@v5
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: public
+      - id: deployment
+        uses: actions/deploy-pages@v4

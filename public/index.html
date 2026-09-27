@@ -5,6 +5,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="A growing timeline of music history: instruments, composers, movements and recordings.">
   <meta name="referrer" content="strict-origin-when-cross-origin">
+  <!-- GitHub Pages can't send headers, so the policy lives here. Only this
+       site's own scripts run; the only outside API is GitHub, for edits. -->
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data: blob:; connect-src 'self' https://api.github.com; object-src 'none'; frame-src 'none'; base-uri 'none'; form-action 'none'">
   <title>Music Through Time</title>
   <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%231A1A1A'/%3E%3Cpath d='M12 22V9l11-2v13' stroke='%23D4AF37' stroke-width='2' fill='none'/%3E%3Ccircle cx='9.5' cy='22' r='2.5' fill='%23D4AF37'/%3E%3Ccircle cx='20.5' cy='20' r='2.5' fill='%23D4AF37'/%3E%3C/svg%3E">
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -115,7 +118,8 @@
   <dialog id="login-dialog" class="dialog">
     <form id="login-form" method="dialog" class="login-form">
       <h3 class="upload-heading">editor sign-in</h3>
-      <input type="password" id="token-input" class="field-input" placeholder="editor token" autocomplete="current-password" required>
+      <p class="field-hint">Paste a fine-grained GitHub token that can only access this repository (Contents: read and write). It stays in this tab and is cleared when you close it.</p>
+      <input type="password" id="token-input" class="field-input" placeholder="github_pat_..." autocomplete="off" spellcheck="false" required>
       <p id="login-error" class="login-error" role="alert" hidden></p>
       <div class="form-actions">
         <button type="submit" id="btn-login" class="solid-btn">continue</button>
@@ -129,6 +133,7 @@
     <img id="image-dialog-img" alt="">
   </dialog>
 
+  <script src="config.js"></script>
   <script src="app.js"></script>
 </body>
 </html>

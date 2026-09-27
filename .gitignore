@@ -1,6 +1,2 @@
-node_modules/
-.netlify/
-.env
-.env.*
-.dev-blobs/
 .gstack/
+.DS_Store
